@@ -158,5 +158,3 @@ venv/
 db.sqlite3
 
 .idea/
-
-staticfiles
