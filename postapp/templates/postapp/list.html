@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .container div {
+    width: 250px;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 1rem;
+  }
+  .container img {
+    width:60%;
+  }
+</style>
+
+<div class="container">
+  {% for post in post_list %}
+    <a href="{% url 'postapp:detail' pk=post.pk%}">
+      <div>
+        <div>
+          {{post.title}}
+        </div>
+        <img src="{{ post.image.url}}" alt="" >
+      </div>
+    </a>
+  {% endfor %}
+<!--  <div><img src="https://picsum.photos/200/250"> </div>-->
+<!--  <div><img src="https://picsum.photos/200/290"> </div>-->
+<!--  <div><img src="https://picsum.photos/200/200"> </div>-->
+<!--  <div><img src="https://picsum.photos/200/350"> </div>-->
+<!--  <div><img src="https://picsum.photos/200/270"> </div>-->
+<!--  <div><img src="https://picsum.photos/200/290"> </div>-->
+<!--  <div><img src="https://picsum.photos/200/250"> </div>-->
+<!--  <div><img src="https://picsum.photos/200/320"> </div>-->
+
+
+</div>
+
+{% endblock %}

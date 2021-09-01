@@ -1,0 +1,20 @@
+<div class="detail_page detail_component commentcontent">
+    <div class="paragraph-70">{{ comment.content }}</div>
+    <div class="div-block-3">
+        <div class="text-label">{% if 'korea.ac.kr' in comment.writer.email %}
+            {% if comment.writer.first_name or comment_writer.last_name %}
+            {{comment.writer.first_name}}{{comment.writer.last_name}}
+            {% else %}
+            No Name
+            {% endif %}
+            {% elif comment.writer.profile %}
+            {{comment.writer.profile.nickname}}
+            {% elif comment.writer %}
+            {{comment.writer}}
+            {% else %}
+            알수없음
+            {% endif %}
+        </div>
+        <div class="text-label">{{ comment.created_at }}</div>
+    </div>
+</div>

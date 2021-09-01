@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+<div>
+    <div style="text-align:center; max-width:500px; margin: 4rem auto">
+       <h1>
+           <strong>글 제목 : {{target_post.title}}</strong>
+       </h1>
+        <h4>
+            글쓴이 : {{target_post.writer}}
+        </h4>
+
+        <hr>
+
+        <p>
+            본문 : {{target_post.content | safe}}
+        </p>
+
+        <hr>
+        <br>
+        <br>
+        {% if target_post.writer == user %}
+            <a href="{% url 'dsumapp:update' pk=target_post.pk %}">
+                <p>Update Post</p>
+            </a>
+            <a href="{% url 'dsumapp:delete' pk=target_post.pk %}">
+                <p>Delete Post</p>
+            </a>
+        {% endif %}
+
+        <a href="{% url 'dsumapp:list' %}">
+            <p>list</p>
+        </a>
+
+    </div>
+</div>
+{% endblock %}

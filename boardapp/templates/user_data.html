@@ -1,0 +1,16 @@
+<div class="text-label">게시일 :</div>
+<div class="text-label">{{post.created_at}}</div>
+<div class="text-label">글쓴이 :</div>
+{% if 'korea.ac.kr' in post.writer.email %}
+    {% if post.writer.first_name or post_writer.last_name %}
+    <div class="text-label">{{post.writer.first_name}}{{post.writer.last_name}}</div>
+    {% else %}
+    <div class="text-label">No Name</div>
+    {% endif %}
+{% elif post.writer.profile %}
+<div class="text-label">{{post.writer.profile.nickname}}</div>
+{% elif post.writer %}
+<div class="text-label">{{post.writer}}</div>
+{% else %}
+<div class="text-label">알수없음</div>
+{% endif %}

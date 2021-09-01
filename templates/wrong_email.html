@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="div-block-7">
+    <div class="form-block w-form">
+      <form id="email-form" name="email-form" data-name="Email Form" class="form">
+        <div class="text-block-14">You do not have access.</div>
+        <div class="text-block-4">고려대 이메일로 로그인 하셨습니까?</div><br>
+        <a class="link-block-2 w-inline-block" onclick="history.go(-1)">
+          <div>
+            <div class="google-login-logo">
+              <div class="text-block-15">Back</div>
+            </div>
+          </div>
+        </a>
+      </form>
+      <div class="w-form-done">
+        <div>Thank you! Your submission has been received!</div>
+      </div>
+      <div class="w-form-fail">
+        <div>Oops! Something went wrong while submitting the form.</div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

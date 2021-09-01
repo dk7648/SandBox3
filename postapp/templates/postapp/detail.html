@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+<div>
+    <div style="text-align:center; max-width:500px; margin: 4rem auto">
+       <h1>
+           글 제목 : {{target_post.title}}
+       </h1>
+        <h4>
+            글쓴이 : {{target_post.writer}}
+        </h4>
+        <h4>
+            글 종류 : {{target_post.type}}
+        </h4>
+        <p>
+            본문 : {{target_post.content}}
+        </p>
+
+        {% if target_post.image %}
+            <img src="{{target_post.image.url}}" alt="">
+        {% endif %}
+
+
+
+        {% if target_post.writer == user %}
+            <a href="{% url 'postapp:update' pk=target_post.pk %}">
+                <p>Update Post</p>
+            </a>
+            <a href="{% url 'postapp:delete' pk=target_post.pk %}">
+                <p>Delete Post</p>
+            </a>
+        {% endif %}
+
+        <a href="{% url 'postapp:list' %}">
+            <p>list</p>
+        </a>
+    <strong>comment</strong>
+    <form action="{% url 'commentapp:create' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3">
+    </form>
+    </div>
+</div>
+{% endblock %}

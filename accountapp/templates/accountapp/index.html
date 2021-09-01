@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="wrapper home">
+    <div class="hero5 home-hero5">
+        <div class="hero5-image-wrap homepage-wrap">
+            <div class="content-wrap">
+                <div class="home-hero-text-wrap">
+                    <div class="home-hero-wrap">
+                        <div data-w-id="5ab16fec-c814-d8d5-ef68-f9d31ac90dd2" style="opacity:0"
+                             class="prospero-ui-kit-headline-copy-copy">sand box<br></div>
+                        <div class="size3-text home"><strong class="bold-text-2">전자 및 정보공학과 비교과 웹페이지</strong><br></div>
+                    </div>
+                    <div class="kit-hero-buttons-wrap">
+                        <a data-w-id="cb38861a-ddd8-53bf-f2db-81d718863b1a" href="https://kuseum.korea.ac.kr/"
+                           target="_blank" class="button-large blue-button w-inline-block">
+                            <div class="text-block-2"><strong>인재양성 홈페이지</strong></div>
+                            <img src="images/Arrow2x.svg" alt="" class="button-arrow">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="home-hero-image-wrap"><img src="images/main_pic.jpg" loading="lazy" width="900" sizes="100vw"
+                                                   srcset="images/main_pic-p-500.jpeg 500w, images/main_pic-p-800.jpeg 800w, images/main_pic-p-1080.jpeg 1080w, images/main_pic-p-1600.jpeg 1600w, images/main_pic-p-2000.jpeg 2000w, images/main_pic-p-2600.jpeg 2600w, images/main_pic-p-3200.jpeg 3200w, images/main_pic.jpg 3610w"
+                                                   alt="" class="image"></div>
+        </div>
+        <div class="home-dark-wrap-section">
+            <div class="section baner">
+                <div class="_4_major_title">4대 전공</div>
+                <div class="wrapper home_baner">
+                    <div class="content">
+                        <div class="w-layout-grid content34-grid home_baner">
+                            <div id="w-node-_8a0d8ed0-5c57-e5e7-67a3-682dce08266c-ce082665" class="home-info-item-wrap">
+                                <div class="home-deco-dot"></div>
+                                <div>
+                                    <div class="text-label home-text-label ai">인공지능/컴퓨터 전공</div>
+                                    <p class="paragraph-70 ai">소프트웨어로 구현되는 최신 인공지능 기술에 대한 <br>이해와 함께 기존 컴퓨터 공학에서 배워야
+                                        하는<br>핵심 기술인 컴퓨터 하드웨어의 해석 및 설계능력과<br>소프트웨어 설계 능력 함양</p>
+                                </div>
+                            </div>
+                            <div id="w-node-_8a0d8ed0-5c57-e5e7-67a3-682dce082679-ce082665" class="home-info-item-wrap">
+                                <div class="home-deco-dot"></div>
+                                <div>
+                                    <div class="text-label home-text-label ai">바이오/헬스 전자 전공</div>
+                                    <p class="paragraph-70 ai">바이오/헬스 관련 첨단 의료장비 및 생체기기의<br>원리를 이해하고 연구. 개발할 수 있는
+                                        인재를<br>양성하기 위해 전자공학 및 ICT 융합학문<br>전반에 대한 교육</p>
+                                </div>
+                            </div>
+                            <div id="w-node-_8a0d8ed0-5c57-e5e7-67a3-682dce082686-ce082665"
+                                 class="home-info-item-wrap right">
+                                <div class="home-deco-dot"></div>
+                                <div>
+                                    <div class="text-label home-text-label ai">나노 전자 전공</div>
+                                    <p class="paragraph-70 ai">나노스케일 반도체 소자 및 집적회로, 3D홀로그램 등<br>차세대 디스플레이, 나노 바이오센서 및
+                                        시스템, <br>인공지능 시스템용 뉴로모픽 칩 등 <br>차세대 첨단 융합 분야의 핵심인재양성</p>
+                                </div>
+                            </div>
+                            <div id="w-node-_8a0d8ed0-5c57-e5e7-67a3-682dce082693-ce082665"
+                                 class="home-info-item-wrap right">
+                                <div class="home-deco-dot"></div>
+                                <div>
+                                    <div class="text-label home-text-label ai">사물인터넷 전공(Internet of Things)</div>
+                                    <p class="paragraph-70 ai">지능형 서비스를 제공하는 사물 인터넷(IOT) 플랫폼,<br>네트워크, 디바이스, 보안 등에 관한 기본
+                                        학문과<br>융합에 대해 다루며 센서, 디바이스, 네트워크,<br>유무선 통신, 플랫폼, 보안등 전자공학 전반의<br>기본 소양을 갖춘 인재양성
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="wrapper home">
+    <div class="hero5 home-hero5"></div>
+</div>
+
+<div class="wrapper home">
+    <div class="section notice home_board">
+        <div class="w-layout-grid product5-grid">
+            <div id="w-node-_41094dd2-c503-1285-5083-cae2cd7df701-26027436" class="home-sections-label">
+                <div class="label black-label major_tutoring">notice</div>
+                <div class="size1-text major_tutoring">공지사항</div>
+                <p class="paragraph-70">전자 및 정보공학과의<br>비교과 프로그램의 일정과<br>소식을 알려드립니다.</p>
+                <a href="{% url 'boardapp:notice' %}" class="more">More -&gt;</a>
+            </div>
+            <div id="w-node-_41094dd2-c503-1285-5083-cae2cd7df70e-26027436" class="w-layout-grid homepage-layouts-grid">
+
+                {% for post in notice_list %}
+                {% include 'preview_card.html' with post=post %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper home">
+    <div class="section notice home_board">
+        <div class="w-layout-grid product5-grid">
+            <div id="w-node-_0cb921c7-8d55-5626-eea8-8e1c5bbcdcc8-26027436" class="home-sections-label">
+                <div class="label black-label major_tutoring">SoftWare tutoring</div>
+                <div class="size1-text major_tutoring">D-sum</div>
+                <p class="paragraph-70">학생들 간의 멘토링을 통한<br>SW역량 강화를 목표로 하는<br>비교과 튜터링 프로그램입니다.<br><br>C언어, Python,
+                    matlab등을 이용한<br>다양한 프로그래밍 학습과<br>튜터링프로그램을 진행합니다.</p>
+                <a href="{% url 'boardapp:dsum' %}" class="more">More -&gt;</a>
+            </div>
+            <div id="w-node-_0cb921c7-8d55-5626-eea8-8e1c5bbcdcd5-26027436" class="w-layout-grid homepage-layouts-grid">
+                {% for post in dsum_list %}
+                {% include 'preview_card.html' with post=post %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper home">
+    <div class="section notice home_board">
+        <div class="w-layout-grid product5-grid">
+            <div id="w-node-afc6e09a-0903-0bfb-a14e-b3399557c06b-26027436" class="home-sections-label">
+                <div class="label black-label major_tutoring">1000Q major</div>
+                <div class="size1-text major_tutoring">전공 1000제</div>
+                <p class="paragraph-70">실제 전공과목에 대한<br>역량을 향상시키고,<br>연습할 수 있는 공간입니다.<br><br>해당 과목의 교수님들과 학생들이<br>함께 문제를
+                    만들어가고<br>검증을 합니다.</p>
+                <a href="{% url 'boardapp:kquestion' %}" class="more">More -&gt;</a>
+            </div>
+            <div id="w-node-afc6e09a-0903-0bfb-a14e-b3399557c078-26027436" class="w-layout-grid homepage-layouts-grid">
+                {% for post in kquestion_list %}
+                {% include 'preview_card.html' with post=post %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper home">
+    <div class="section notice home_board">
+        <div class="w-layout-grid product5-grid">
+            <div id="w-node-_95d02e60-ffa9-c4b7-a4a9-acb785e7b61d-26027436" class="home-sections-label">
+                <div class="label black-label major_tutoring">major tutoring</div>
+                <div class="size1-text major_tutoring">전공 튜터링</div>
+                <p class="paragraph-70">실제 전공과목에 대해<br>학생들 스스로 멘토링 그룹을 형성해<br>학습을 하는 튜터링 프로그램입니다.</p>
+                <a href="{% url 'boardapp:tutoring' %}" class="more">More -&gt;</a>
+            </div>
+            <div id="w-node-_95d02e60-ffa9-c4b7-a4a9-acb785e7b62a-26027436" class="w-layout-grid homepage-layouts-grid">
+                {% for post in tutoring_list %}
+                {% include 'preview_card.html' with post=post %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

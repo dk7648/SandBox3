@@ -1,0 +1,107 @@
+<div data-collapse="medium" data-animation="default" data-duration="400" data-easing2="ease-in-out-circ"
+     data-easing="ease-out-circ" id="navigation" role="banner" class="navbar w-nav">
+    {% if request.path == '/'%}
+    <div class="nav-kit-wrap"><img src="images/crimson1positive.gif" loading="lazy" width="23" alt="" class="image-2">
+        <a href="https://sejong.korea.ac.kr/kr" class="prospero-brand w-nav-brand">
+            <div class="prospero-nav-logo"><span class="text-span"><strong class="bold-text">고려대학교 세종캠퍼스</strong></span>
+            </div>
+            <div class="prospero-nav-logo under"><strong>KOREA UNIVERSITY SEJONG CAMPUS</strong></div>
+        </a>
+        <div class="nav-kit-divider"></div>
+    </div>
+    {% else %}
+    <div class="nav-kit-wrap">
+        <a href="{% url 'index' %}" class="prospero-brand w-nav-brand">
+            <div class="text-block-9">Sand Box</div>
+        </a>
+        <div class="nav-kit-divider"></div>
+    </div>
+    {% endif %}
+    <nav role="navigation" class="nav-menu w-nav-menu">
+        <div class="dropdowns-wrap">
+            <div data-hover="1" data-delay="0" class="dropdown w-dropdown">
+                <div class="dropdown-toggle w-dropdown-toggle">
+                    <div class="dropdown-wrap">
+                        <div class="prospero-link">전체비교과</div>
+                        <img src="images/Dropdown-Arrow2x.svg" alt="" class="kit-arrow-dropdown">
+                    </div>
+                </div>
+                <nav class="dropdown-list w-dropdown-list">
+                    <div>
+                        <a href="{% url 'boardapp:list' %}" class="dropdown-link w-dropdown-link">전체 게시판</a>
+                        <a href="{% url 'boardapp:notice' %}" class="dropdown-link w-dropdown-link">공지사항</a>
+                        <a href="{% url 'boardapp:dsum' %}" class="dropdown-link w-dropdown-link">d-sum</a>
+                        <a href="{% url 'boardapp:kquestion' %}" class="dropdown-link w-dropdown-link">전공1000제</a>
+                        <a href="{% url 'boardapp:tutoring' %}" class="dropdown-link w-dropdown-link">전공튜터링</a>
+                        <a href="{% url 'boardapp:contest' %}" class="dropdown-link w-dropdown-link">공모전</a>
+                    </div>
+                </nav>
+            </div>
+            <div data-hover="1" data-delay="0" class="dropdown w-dropdown">
+                <div class="dropdown-toggle w-dropdown-toggle">
+                    <div class="dropdown-wrap">
+                        <div class="prospero-link">기타</div>
+                        <img src="images/Dropdown-Arrow2x.svg" alt="" class="kit-arrow-dropdown">
+                    </div>
+                </div>
+                <nav class="dropdown-list w-dropdown-list">
+                    <div>
+                        <a href="#" class="dropdown-link w-dropdown-link">Co-Working</a>
+                        <a href="#" class="dropdown-link w-dropdown-link">과학문화활동</a>
+                        <a href="#" class="dropdown-link w-dropdown-link">Data Refinery Center</a>
+                    </div>
+                    <div>
+                        <a href="#" class="dropdown-link w-dropdown-link">sFGR 링크 연구회</a>
+                        <a href="#" class="dropdown-link w-dropdown-link">캡스톤 프로그램</a>
+                        <a href="#" class="dropdown-link w-dropdown-link">Super Computing Center</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </nav>
+
+    <div class="kit-nav-buttons-wrap">
+        {% if not user.is_authenticated %}
+        <div class="name-devider"></div>
+        {% if request.path == '/' %}
+        <a data-w-id="cb8ec73b-92b3-c27d-4e84-2e9d121a0e07" href="{% url 'accountapp:login' %}"
+           target="_blank" class="button-small kit-download-menu w-inline-block">
+            <div class="button-label">Login</div>
+        </a>
+        {% else %}
+        <a data-w-id="cb8ec73b-92b3-c27d-4e84-2e9d121a0e07" href="{% url 'accountapp:login' %}"
+           target="_blank" class="button-small kit-download-menu board_header_login w-inline-block">
+            <div class="button-label">Login</div>
+        </a>
+        {% endif %}
+        {% else %}
+            {% if 'korea.ac.kr' in user.email %}
+                <a href="{% url 'accountapp:detail' pk=user.pk %}" class="link-block-3 w-inline-block">
+                    <div class="text-block-12">{{user.first_name}}{{user.last_name}}</div>
+                </a>
+            {% else %}
+                <a href="{% url 'accountapp:detail' pk=user.pk %}" class="link-block-3 w-inline-block">
+                    <div class="text-block-12">{{user}}</div>
+                </a>
+            {% endif %}
+        {% if request.path == '/' %}
+        <a data-w-id="cb8ec73b-92b3-c27d-4e84-2e9d121a0e07" href="{% url 'accountapp:logout' %}"
+           target="_blank" class="button-small kit-download-menu w-inline-block">
+            <div class="button-label">Logout</div>
+        </a>
+        {% else %}
+        <a data-w-id="cb8ec73b-92b3-c27d-4e84-2e9d121a0e07" href="{% url 'accountapp:logout' %}"
+           target="_blank" class="button-small kit-download-menu board_header_login w-inline-block">
+            <div class="button-label">Logout</div>
+        </a>
+        {% endif %}
+        {% endif %}
+    </div>
+    <div data-w-id="dc026f5b-a1ff-83cb-1a32-ca72adbda497" class="menu-button-kit menu-button-kit-nav w-nav-button"><img
+            src="images/Menu-Icon_1Menu-Icon.png" height="14" width="20"
+            style="-webkit-transform:translate3d(0PX, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0PX, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0PX, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0PX, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+            alt="" class="menu-icon-kit-nav"><img src="images/Menu-Icon_1Menu-Icon.png" height="14" width="20"
+                                                  style="-webkit-transform:translate3d(100PX, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(100PX, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(100PX, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(100PX, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                                                  alt="" class="menu-icon-swipe"></div>
+
+</div>

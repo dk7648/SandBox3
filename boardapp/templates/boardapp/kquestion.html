@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="elements-section-headline-wrap green_board">
+    <div id="Hero" class="section detail">
+        <div class="w-layout-grid grid">
+            <div id="w-node-_7dda8885-ea4b-3585-181f-391edaf00c22-d4761082" class="elements-headline-wrap">
+                <div class="sizejumbo-text notice green_board">전공 1000제<br></div>
+                <p class="detail_page notice green_board">전자 및 정보공학과 <br>전공 1000제 게시판</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="w-layout-grid blog1-grid">
+        <div id="w-node-_4cdac5a5-6ceb-cb09-5bb0-11da51d85b8a-d4761082" class="blog1-headline-wrap detail_page">
+            <div class="size3-text">All Posts<br></div>
+            <a href="{% url 'boardapp:create' %}">
+                <button>
+                    <div>post</div>
+                </button>
+            </a>
+        </div>
+        {% for post in post_list %}
+        <div id="w-node-e3f22483-798b-3788-463d-7441637cf85e-d4761082" class="detail_page detail_component">
+            <a href="{% url 'boardapp:detail' pk=post.pk%}" class="size4-link">{{post.title}}</a>
+            <div class="div-block-3 green_board">
+                {% include 'user_data.html' %}
+            </div>
+            <div class="paragraph-70">{{ post.summary | safe }}</div>
+
+            <div class="blog1-button-wrap">
+                <a data-w-id="e3f22483-798b-3788-463d-7441637cf86a" href="{% url 'boardapp:detail' pk=post.pk%}"
+                   class="button-small notice green w-inline-block">
+                    <div class="button-label notice green">Read more</div>
+                    <img src="images/green_arrow.png" width="25" alt="" class="button-arrow">
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% include 'page_green.html' %}
+
+{% endblock %}

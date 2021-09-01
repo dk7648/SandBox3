@@ -1,0 +1,32 @@
+{% load bootstrap4 %}
+{% block content %}
+
+<div class="w-form">
+    <form action="{% url 'commentapp:create' %}" method="post" enctype="multipart/form-data" id="wf-form-commnet-form" name="wf-form-commnet-form" data-name="commnet form">
+        {% csrf_token %}
+        <textarea required id="id_content" name="content" maxlength="5000" id="field" placeholder="댓글을 써주세요!" class="w-input"></textarea>
+        <div class="blog1-button-wrap">
+            {% if target_post.type == 'notice' %}
+            <input type="submit" value="Submit -&gt;" data-wait="Please wait..." class="submit-button-2 button-small notice w-button">
+            {% elif target_post.type == 'kquestion' %}
+            <input type="submit" value="Submit -&gt;" data-wait="Please wait..." class="submit-button-2 button-small notice green w-button">
+            {% elif target_post.type == 'dsum' %}
+            <input type="submit" value="Submit -&gt;" data-wait="Please wait..." class="submit-button-2 button-small notice blue w-button">
+            {% elif target_post.type == 'tutoring' %}
+            <input type="submit" value="Submit -&gt;" data-wait="Please wait..." class="submit-button-2 button-small notice red w-button">
+            {% elif target_post.type == 'contest' %}
+            <input type="submit" value="Submit -&gt;" data-wait="Please wait..." class="submit-button-2 button-small notice puple w-button">
+            {% else %}
+            comment의 create.html을 수정해주세요!
+            {% endif %}
+            <input type="hidden" name="board_pk" value="{{board.pk}}">
+        </div>
+    </form>
+    <div class="w-form-done">
+        <div>Thank you! Your submission has been received!</div>
+    </div>
+    <div class="w-form-fail">
+        <div>Oops! Something went wrong while submitting the form.</div>
+    </div>
+</div>
+{% endblock %}

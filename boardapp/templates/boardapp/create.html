@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="elements-section-headline-wrap yellow">
+    <div id="Hero" class="section detail">
+        <div class="blog1-headline-wrap detail_page">
+            <div class="size3-text post">Post<br></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="section">
+    <div class="w-form">
+        <form action="{% url 'boardapp:create' %}" method="post" enctype="multipart/form-data" id="email-form"
+              name="email-form" data-name="Email Form">
+            {% csrf_token %}
+            {{ form.media }}
+            <label for="email-2">Title</label><input
+                type="text" class="text-field-3 w-input" maxlength="256" name="title" data-name="Title" placeholder=""
+                id="Title" required=""><label for="email"> board select</label><select id="field" name="type"
+                                                                                       data-name="Field" required=""
+                                                                                       class="w-select">
+            <option value="">Board Select</option>
+            <option value="notice">공지사항</option>
+            <option value="dsum">D-SUM</option>
+            <option value="kquestion">전공 1000제</option>
+            <option value="contest">공모전</option>
+            <option value="tutoring">전공튜터링</option>
+        </select>
+            <label for="email-2">content</label>
+            <div class="django-ckeditor-widget" data-field-id="id_content" style="display: inline-block;">
+                      <textarea class="form-control" cols="40" id="id_content" name="content" placeholder="Content"
+                                rows="10"
+                                title="" required data-processed="0"
+                                data-config='{"skin": "moono-lisa", "toolbar_Basic": [["Source", "-", "Bold", "Italic"]], "toolbar_Full": [["Styles", "Format", "Bold", "Italic", "Underline", "Strike", "SpellChecker", "Undo", "Redo"], ["Link", "Unlink", "Anchor"], ["Image", "Flash", "Table", "HorizontalRule"], ["TextColor", "BGColor"], ["Smiley", "SpecialChar"], ["Source"]], "toolbar": "full", "height": 291, "width": 835, "filebrowserWindowWidth": 940, "filebrowserWindowHeight": 725, "extraPlugins": "codesnippet", "codeSnippet_theme": "monokai_sublime", "language": "ko-kr"}'
+                                data-external-plugin-resources="[]" data-id="id_content"
+                                data-type="ckeditortype"></textarea>
+            </div>
+            <div class="blog1-button-wrap">
+                <input type="submit" value="Submit -&gt;" data-wait="Please wait..." class="submit-button-2 button-small notice w-button">
+            </div>
+
+        </form>
+        <div class="w-form-done">
+            <div>Thank you! Your submission has been received!</div>
+        </div>
+        <div class="w-form-fail">
+            <div>Oops! Something went wrong while submitting the form.</div>
+        </div>
+    </div>
+
+    {{user}}
+
+</div>
+{% endblock %}

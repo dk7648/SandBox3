@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if target_post.type == 'notice' %}
+<div class="elements-section-headline-wrap yellow">
+{% elif target_post.type == 'kquestion' %}
+<div class="elements-section-headline-wrap green">
+{% elif target_post.type == 'dsum' %}
+<div class="elements-section-headline-wrap blue">
+{% elif target_post.type == 'tutoring' %}
+<div class="elements-section-headline-wrap red">
+{% elif target_post.type == 'contest' %}
+<div class="elements-section-headline-wrap puple">
+{% else %}
+<div class="elements-section-headline-wrap">
+{% endif %}
+    <div id="Hero" class="section detail">
+        <h1 class="heading-2">{{target_post.title}}</h1>
+        <div class="div-block-8">
+            <div class="text-block-18">글쓴이 :
+                {% if 'korea.ac.kr' in target_post.writer.email %}
+                {% if target_post.writer.first_name or target_post_writer.last_name %}
+                {{target_post.writer.first_name}}{{target_post.writer.last_name}}
+                {% else %}
+                No Name
+                {% endif %}
+                {% elif target_post.writer.profile %}
+                {{target_post.writer.profile.nickname}}
+                {% elif target_post.writer %}
+                {{target_post.writer}}
+                {% else %}
+                알수없음
+                {% endif %}
+            </div>
+            <div>Borad : {{target_post.type}}</div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="w-layout-grid blog1-grid">
+        <div id="w-node-_4cdac5a5-6ceb-cb09-5bb0-11da51d85b8a-516e88a6" class="blog1-headline-wrap detail_page"></div>
+        <div class="detail_page detail_component content">
+            <div class="paragraph-70">{{target_post.content | safe}}</div>
+        </div>
+        <div class="blog1-button-wrap back">
+            <!--목록 가기-->
+            {% if target_post.type == 'notice'%}
+            <a data-w-id="e3f22483-798b-3788-463d-7441637cf86a" href="{% url 'boardapp:notice' %}" class="button-small notice w-inline-block">
+                    <div class="button-label notice back">&lt;- Back</div>
+            </a>
+            {% elif target_post.type == 'dsum'%}
+            <a data-w-id="e3f22483-798b-3788-463d-7441637cf86a" href="{% url 'boardapp:dsum' %}" class="button-small notice w-inline-block blue">
+                    <div class="button-label notice back blue">&lt;- Back</div>
+            </a>
+            {% elif target_post.type == 'kquestion'%}
+            <a data-w-id="e3f22483-798b-3788-463d-7441637cf86a" href="{% url 'boardapp:kquestion' %}" class="button-small notice w-inline-block green">
+                    <div class="button-label notice back green">&lt;- Back</div>
+            </a>
+            {% elif target_post.type == 'contest'%}
+            <a data-w-id="e3f22483-798b-3788-463d-7441637cf86a" href="{% url 'boardapp:contest' %}" class="button-small notice w-inline-block puple">
+                    <div class="button-label notice back puple">&lt;- Back</div>
+            </a>
+            {% elif target_post.type == 'tutoring'%}
+            <a data-w-id="e3f22483-798b-3788-463d-7441637cf86a" href="{% url 'boardapp:tutoring' %}" class="button-small notice w-inline-block red">
+                    <div class="button-label notice back red">&lt;- Back</div>
+            </a>
+            {% else %}
+            board/detail페이지 에러
+            {% endif %}
+
+            <div class="div-block-9"></div>
+            <div class="div-block-9"></div>
+            <div class="div-block-9"></div>
+        </div>
+          <div class="div-block-9"></div>
+          <div class="detail_page detail_component comment">
+            <!--   댓글 쓰기 -->
+            {% include 'commentapp/create.html' with board=target_post %}
+            <div class="div-block-9"></div>
+
+            <div class="size3-text">Comment<br></div>
+            <!--    댓글 리스트 -->
+            {% for comment in comment_list %}
+            {% include 'commentapp/detail.html' %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

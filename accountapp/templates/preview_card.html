@@ -1,0 +1,28 @@
+<div>
+    <div class="image-wrap">
+        <a data-w-id="07609244-6193-d46b-a41f-ad8229d71bbe" style="opacity:0" href="{% url 'boardapp:detail' pk=post.pk%}"
+           class="item-overlay w-inline-block">
+            <div class="button-small white-small">
+                <div>More</div>
+            </div>
+        </a>
+        <div class="home-item-wrap">
+            {% if post.type == 'notice' %}
+            <div class="div-block-6 yellow">
+            {% elif post.type == 'dsum' %}
+            <div class="div-block-6 blue">
+            {% elif post.type == 'kquestion' %}
+            <div class="div-block-6 green">
+            {% elif post.type == 'tutoring' %}
+            <div class="div-block-6 pink">
+            {% elif post.type == 'contest' %}
+            <div class="div-block-6 grape">
+            {% else %}
+            <div class="div-block-6">
+            {% endif %}
+                <h1 class="heading">{{post.summary_preview_title}}</h1>
+                <div class="text-block-11">{{post.created_at}}</div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+<div>
+    <div style="text-align:center; max-width:500px; margin: 4rem auto">
+        <p>{{target_user.date_joined}}</p>
+
+        <!--대상의 프로필이 있는가-->
+        {% if target_user.profile %}
+        <img src="{{ target_user.profile.image.url }}" alt=""
+             style="height:10rem; width:10rem; border-radius: 20rem; margin-bottom: 1rem;">
+
+        <h2>
+            {{target_user.profile.nickname}}
+            <!--유저 본인인가-->
+            {% if target_user == user %}
+            <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
+                edit
+            </a>
+            {% endif %}
+            <h5 style="margin-bottom: 3rem">{{ target_user.profile.message }}</h5>
+        </h2>
+
+        {% else %}
+            <!--유저 본인이면,-->
+            {% if target_user == user %}
+            <a href="{% url 'profileapp:create'%}">
+                <h2>Create Profile</h2>
+            </a>
+            <!--유저 본인 아니면,-->
+            {% else %}
+            <h2>닉네임 미설정</h2>
+            {% endif %}
+        {% endif %}
+
+        <!-- 구글 로그인 시 -->
+        {% if 'korea.ac.kr' in target_user.email %}
+        <div>user : {{ target_user }}</div>
+        <div>user email : {{ target_user.email }}</div>
+        <div>user id : {{ target_user.pk }}</div>
+        <div>username : {{ target_user.username }}</div>
+        <div>first name : {{ target_user.first_name }}</div>
+        <div>last name : {{ target_user.last_name }}</div>
+        <div>is active : {{ target_user.is_active }}</div>
+<!--        <div>date joined : {{ target_user.date_joined }}</div>-->
+        <div>USERNAME_FIELD : {{ target_user.USERNAME_FIELD }}</div>
+        {% endif %}
+
+
+        {% if target_user == user %}
+        <a href="{% url 'accountapp:delete' pk=user.pk %}">
+            <p>Quit</p>
+        </a>
+        <a href="{% url 'accountapp:logout' %}?next={{ request.path }}">
+            <span>logout</span>
+        </a>
+
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

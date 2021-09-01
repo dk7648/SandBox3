@@ -1,0 +1,69 @@
+<!-- pagination -->
+<div class="pagenation">
+    {% if post_list.number != 1 %}
+    <a href="{{ request.path }}?page=1" class="page_button green w-inline-block">
+      <div class="text-block-16">&lt;</div>
+    </a>
+    {% endif %}
+    {% if 1 <= post_list.number|add:-2 %}
+    <a href="{{ request.path }}?page={{post_list.previous_page_number|add:-1 }}" class="page_button green w-inline-block">
+      <div class="text-block-16">{{post_list.previous_page_number|add:-1 }}</div>
+    </a>
+    {% endif %}
+    {% if post_list.has_previous %}
+    <a href="{{ request.path }}?page={{post_list.previous_page_number }}" class="page_button green w-inline-block">
+      <div class="text-block-16">{{post_list.previous_page_number }}</div>
+    </a>
+    {% endif %}
+    <a href="{{ request.path }}?page={{post_list.number}}" class="page_button green w-inline-block">
+      <div class="text-block-16">{{post_list.number}}</div>
+    </a>
+    {% if post_list.has_next %}
+    <a href="{{ request.path }}?page={{post_list.next_page_number }}" class="page_button green w-inline-block">
+      <div class="text-block-16">{{post_list.next_page_number }}</div>
+    </a>
+    {% endif %}
+    {% if post_list.paginator.num_pages >= post_list.number|add:+2 %}
+    <a href="{{ request.path }}?page={{post_list.next_page_number|add:+1 }}" class="page_button green w-inline-block">
+      <div class="text-block-16">{{post_list.next_page_number|add:+1 }}</div>
+    </a>
+    {% endif %}
+    {% if post_list.number != post_list.paginator.num_pages %}
+    <a href="{{ request.path }}?page={{post_list.paginator.num_pages}}" class="page_button green w-inline-block">
+      <div class="text-block-16">></div>
+    </a>
+    {% endif %}
+</div>
+
+
+
+<!--        &lt;!&ndash; Pagination &ndash;&gt;-->
+<!--        <div style="text-align:center">-->
+<!--            <div class="pagination">-->
+
+<!--                <div style="width:35%; margin: 5px;">-->
+<!--                {% if post_list.has_previous %}-->
+<!--                    <a class="abutton" href="{{ request.path }}?page=1">맨 앞으로</a>-->
+<!--                    <a class="abutton" href="{{ request.path }}?page={{ post_list.previous_page_number }}">이전</a>-->
+<!--                {% endif %}-->
+<!--                </div>-->
+
+<!--                <div style="width:30%; margin: 5px;">-->
+<!--                {% for page in post_list.paginator.page_range %}-->
+<!--                    {% if page >= post_list.number|add:-2 and page <= post_list.number|add:2 %}-->
+<!--                    <span class="{% if page == post_list.number %}current{% endif %}">-->
+<!--                        <a href="{{ request.path }}?page={{ page }}">{{ page}}</a>-->
+<!--                    </span>-->
+<!--                    {% endif %}-->
+<!--                {% endfor %}-->
+<!--                </div>-->
+
+<!--                <div style="width:35%; margin: 5px;">-->
+<!--                {% if post_list.has_next %}-->
+<!--                    <a class="abutton" href="{{ request.path }}?page={{ post_list.next_page_number }}">다음</a>-->
+<!--                    <a class="abutton" href="{{ request.path }}?page={{ post_list.paginator.num_pages }}">맨 뒤로</a>-->
+<!--                {% endif %}-->
+<!--                </div>-->
+
+<!--            </div>-->
+<!--        </div>-->
