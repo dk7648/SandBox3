@@ -23,7 +23,9 @@
                                                                                        data-name="Field" required=""
                                                                                        class="w-select">
             <option value="">Board Select</option>
+            {% if target_user.username == 'admin' %}
             <option value="notice">공지사항</option>
+            {% endif %}
             <option value="dsum">D-SUM</option>
             <option value="kquestion">전공 1000제</option>
             <option value="contest">공모전</option>
@@ -51,7 +53,6 @@
         </div>
     </div>
 
-    {{user}}
 
 </div>
 {% endblock %}

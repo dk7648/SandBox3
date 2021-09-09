@@ -1,13 +1,40 @@
 {% extends 'base.html' %}
 {% block content %}
-<div style="text-align:center; max-width:500px; margin: 4rem auto">
-    <div class="mb-4">
-        <h4>SignUp</h4>
-    </div>
+<div class="div-block-7">
+
     <form action="{% url 'accountapp:create' %}" method="post">
         {% csrf_token %}
-        {{form}}
-        <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3">
+        <div class="form-block w-form">
+            <div class="text-block-14">Join</div>
+            <input type="email" class="text-field-2 w-input" maxlength="150" name="username"
+                   data-name="Field"
+                   placeholder="ID : Korea Email로 써주세요!" id="field" required="" autocapitalize="none"
+                   autocomplete="username"
+                   autofocus required id="id_username">
+            <input type="password" class="text-field-2 w-input" maxlength="256" name="password1"
+                   data-name="Field 2" placeholder="Password" id="field-2" required=""
+                   autocomplete="new-password" required id="id_password1">
+            <input type="password" class="text-field-2 w-input" maxlength="256" name="password2"
+                   data-name="Field 2" placeholder="Password Confirm" id="field-2" required=""
+                   autocomplete="new-password" required id="id_password2">
+            <input type="submit" value="Login" data-wait="Please wait..." class="submit-button w-button">
+            <a href="#" class="link-block-2 w-inline-block">
+                <div class="google-login">
+                    <div class="google-login-logo"><img src="images/Google_Logo.png" loading="lazy" width="20"
+                                                        height="20" alt="" class="image-4">
+                        <div class="text-block-15">Google Login</div>
+                    </div>
+                </div>
+            </a>
+            </div>
+
     </form>
+
+    <div class="w-form-done">
+        <div>Thank you! Your submission has been received!</div>
+    </div>
+    <div class="w-form-fail">
+        <div>Oops! Something went wrong while submitting the form.</div>
+    </div>
 </div>
 {% endblock %}

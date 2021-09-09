@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style="text-align:center; max-width:500px; margin: 4rem auto">
+    <div class="mb-4">
+        <h4>SignUp</h4>
+    </div>
+    <form action="{% url 'accountapp:create' %}" method="post">
+        {% csrf_token %}
+        <tr>
+            <th>
+                <label for="id_username">사용자 이름:</label>
+            </th>
+            <td>
+                <input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username"
+                       autofocus required id="id_username">
+                <br>
+                <span class="helptext">150자 이하 문자, 숫자 그리고 @/./+/-/_만 가능합니다.</span>
+            </td>
+        </tr>
+        <tr>
+            <th><label for="id_password1">비밀번호:</label></th>
+            <td><input type="password" name="password1" autocomplete="new-password" required id="id_password1"><br>
+                <span class="helptext">
+                    <ul>
+                        <li>다른 개인 정보와 유사한 비밀번호는 사용할 수 없습니다.</li>
+                        <li>비밀번호는 최소 8자 이상이어야 합니다.</li>
+                        <li>통상적으로 자주 사용되는 비밀번호는 사용할 수 없습니다.</li>
+                        <li>숫자로만 이루어진 비밀번호는 사용할 수 없습니다.</li>
+                    </ul>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <label for="id_password2">비밀번호 확인:</label>
+            </th>
+            <td>
+                <input type="password" name="password2" autocomplete="new-password" required id="id_password2">
+                <br>
+                <span class="helptext">확인을 위해 이전과 동일한 비밀번호를 입력하세요. </span>
+            </td>
+        </tr>
+        <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3">
+    </form>
+</div>
+{% endblock %}

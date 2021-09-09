@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style="text-align:center; max-width:500px; margin: 4rem auto">
+    <div>
+        <h4>Login</h4>
+    </div>
+    <div>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            <tr>
+                <th>
+                    <label for="id_username">
+                        사용자 이름:
+                    </label>
+                </th>
+                <td>
+                    <input type="text" name="username" autofocus autocapitalize="none" autocomplete="username"
+                           maxlength="150" required id="id_username">
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="id_password">비밀번호:</label>
+                </th>
+                <td>
+                    <input type="password" name="password" autocomplete="current-password" required id="id_password">
+                </td>
+            </tr>
+            <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3">
+        </form>
+        <!--        <a href="/accounts/google/login/">-->
+        <!--            <button class="btn btn-dark rounded-pill col-6 mt-3"> Google Login </button>-->
+        <!--        </a>-->
+        <br>
+        <a href="{% url 'accountapp:create' %}">
+            <button>회원가입</button>
+        </a>
+
+    </div>
+</div>
+{% endblock %}

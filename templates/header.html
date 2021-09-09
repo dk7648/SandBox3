@@ -65,12 +65,12 @@
         <div class="name-devider"></div>
         {% if request.path == '/' %}
         <a data-w-id="cb8ec73b-92b3-c27d-4e84-2e9d121a0e07" href="{% url 'accountapp:login' %}"
-           target="_blank" class="button-small kit-download-menu w-inline-block">
+           target="_self" class="button-small kit-download-menu w-inline-block">
             <div class="button-label">Login</div>
         </a>
         {% else %}
         <a data-w-id="cb8ec73b-92b3-c27d-4e84-2e9d121a0e07" href="{% url 'accountapp:login' %}"
-           target="_blank" class="button-small kit-download-menu board_header_login w-inline-block">
+           target="_self" class="button-small kit-download-menu board_header_login w-inline-block">
             <div class="button-label">Login</div>
         </a>
         {% endif %}
@@ -86,12 +86,12 @@
             {% endif %}
         {% if request.path == '/' %}
         <a data-w-id="cb8ec73b-92b3-c27d-4e84-2e9d121a0e07" href="{% url 'accountapp:logout' %}"
-           target="_blank" class="button-small kit-download-menu w-inline-block">
+           target="_self" class="button-small kit-download-menu w-inline-block">
             <div class="button-label">Logout</div>
         </a>
         {% else %}
         <a data-w-id="cb8ec73b-92b3-c27d-4e84-2e9d121a0e07" href="{% url 'accountapp:logout' %}"
-           target="_blank" class="button-small kit-download-menu board_header_login w-inline-block">
+           target="_self" class="button-small kit-download-menu board_header_login w-inline-block">
             <div class="button-label">Logout</div>
         </a>
         {% endif %}

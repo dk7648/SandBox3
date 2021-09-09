@@ -13,11 +13,23 @@ def board_ownership_required(func):
         return func(request, *args, **kwargs)
     return decorated
 
+# 로그인 안하면 로그인페이지로, 학교이메일 아니면 에러 창 표시
+# class LoginRequired(AccessMixin):
+#     """Verify that the current user is authenticated."""
+#     def dispatch(self, request, *args, **kwargs):
+#         if not request.user.is_authenticated:
+#             return self.handle_no_permission()
+#         if not 'korea.ac.kr' in request.user.email:
+#             return render(request, 'wrong_email.html')
+#         return super().dispatch(request, *args, **kwargs)
+
 class LoginRequired(AccessMixin):
     """Verify that the current user is authenticated."""
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
             return self.handle_no_permission()
-        if not 'korea.ac.kr' in request.user.email:
-            return render(request, 'wrong_email.html')
+        try:
+            request.user.profile
+        except:
+            return render(request, 'not_profile.html')
         return super().dispatch(request, *args, **kwargs)

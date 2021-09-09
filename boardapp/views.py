@@ -28,11 +28,14 @@ class BoardCreateView(CreateView):
         temp_board.save()
         return super().form_valid(form)
 
+    def get_context_data(self, **kwargs):
+        target_user = self.request.user
+        return super(BoardCreateView, self).get_context_data(target_user=target_user, **kwargs)
+
     def get_success_url(self):
         return reverse('boardapp:detail', kwargs={'pk': self.object.pk})
 
-# class BoardDetailView(LoginRequired, DetailView, FormMixin):
-class BoardDetailView(DetailView, FormMixin):
+class BoardDetailView(LoginRequired, DetailView, FormMixin):
     login_url = '/accounts/login/'
     model = Board
     form_class = CommentCreationForm
@@ -67,9 +70,7 @@ class BoardDeleteView(DeleteView):
     success_url = reverse_lazy('boardapp:list')
     template_name = 'boardapp/delete.html'
 
-# class BasicListView(LoginRequired, ListView):
-
-class BasicListView(ListView):
+class BasicListView(LoginRequired, ListView):
     login_url = '/accounts/login/'
     model = Board
     context_object_name = 'post_list'
